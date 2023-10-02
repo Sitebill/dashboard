@@ -1,3 +1,7 @@
+@import 'primevue/resources/themes/lara-light-teal/theme.css';
+@import 'primevue/resources/primevue.min.css';
+@import 'primeicons/primeicons.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,3 +9,4 @@
 [x-cloak] {
     display: none;
 }
+
