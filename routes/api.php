@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+//Route::middleware(['auth:sanctum'])->group(function(){
+    Route::apiResource('/user', UserController::class);
+    Route::apiResource('/role', RoleController::class);
+    Route::apiResource('/permissions', PermissionController::class);
+//});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ViewController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,3 +34,10 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/users', [ViewController::class,'users'])->name('users');
+    Route::get('/roles', [ViewController::class,'roles'])->name('roles');
+    Route::get('/permissions', [ViewController::class,'permissions'])->name('permissions');
+});
+
